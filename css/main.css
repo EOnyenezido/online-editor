@@ -1,0 +1,41 @@
+header, main, footer {
+  padding-left: 150px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+  padding-left: 0;
+  }
+}
+
+#htmlEditor { 
+  position: absolute;
+  top: 1%;
+  right: 50%;
+  bottom: 50%;
+  left: 12%;
+}
+
+#cssEditor { 
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  bottom: 50%;
+  left: 51%;
+}
+
+#jsEditor { 
+  position: absolute;
+  top: 51%;
+  right: 50%;
+  bottom: 1%;
+  left: 12%;
+}
+
+#preview { 
+  position: absolute;
+  top: 50%;
+  right: 1%;
+  bottom: 1%;
+  left: 50%;
+}
