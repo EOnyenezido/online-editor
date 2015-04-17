@@ -25,6 +25,9 @@ htmlEditor.setTheme("ace/theme/github");
 htmlEditor.getSession().setMode("ace/mode/html");
 cssEditor.setTheme("ace/theme/github");
 cssEditor.getSession().setMode("ace/mode/css");
+htmlEditor.setValue(htmlState);
+jsEditor.setValue(jsState);
+cssEditor.setValue(cssState);
 htmlEditor.commands.addCommand({
     name: 'myCommand',
     bindKey: {win: 'Ctrl-M',  mac: 'Command-M'},
