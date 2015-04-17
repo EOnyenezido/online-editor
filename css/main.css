@@ -54,4 +54,5 @@ header, main, footer{
   right: 1%;
   bottom: 0%;
   left: 51%;
+  overflow: auto;
 }
