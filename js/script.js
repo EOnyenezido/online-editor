@@ -1,26 +1,48 @@
 //$('.button-collapse').sideNav('hide');
-$('.button-collapse').sideNav({
-  menuWidth: 150 // Default is 240
+/*$('.button-collapse').sideNav({
+  menuWidth: 113 // Default is 240
   //edge: 'right', // Choose the horizontal origin
   //closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
   }
-);
+);*/
 var currentEditor = "html";
-var jsEditor = ace.edit("jsEditor");
 var htmlEditor = ace.edit("htmlEditor");
+var jsEditor = ace.edit("jsEditor");
 var cssEditor = ace.edit("cssEditor");
-jsEditor.setTheme("ace/theme/monokai");
+jsEditor.setTheme("ace/theme/github");
 jsEditor.getSession().setMode("ace/mode/javascript");
-htmlEditor.setTheme("ace/theme/monokai");
+htmlEditor.setTheme("ace/theme/github");
 htmlEditor.getSession().setMode("ace/mode/html");
-cssEditor.setTheme("ace/theme/monokai");
+cssEditor.setTheme("ace/theme/github");
 cssEditor.getSession().setMode("ace/mode/css");
 htmlEditor.commands.addCommand({
     name: 'myCommand',
     bindKey: {win: 'Ctrl-M',  mac: 'Command-M'},
     exec: function(editor) {
       $('#preview').empty();
-      $('#preview').append("<style>" + jsEditor.getValue() + "</style>");
+      $('#preview').append("<style>" + cssEditor.getValue() + "</style>");
+      $('#preview').append(htmlEditor.getValue());
+      $('#preview').append("<script>" + jsEditor.getValue() + "</script>");
+    }
+});
+
+cssEditor.commands.addCommand({
+    name: 'myCommand',
+    bindKey: {win: 'Ctrl-M',  mac: 'Command-M'},
+    exec: function(editor) {
+      $('#preview').empty();
+      $('#preview').append("<style>" + cssEditor.getValue() + "</style>");
+      $('#preview').append(htmlEditor.getValue());
+      $('#preview').append("<script>" + jsEditor.getValue() + "</script>");
+    }
+});
+
+jsEditor.commands.addCommand({
+    name: 'myCommand',
+    bindKey: {win: 'Ctrl-M',  mac: 'Command-M'},
+    exec: function(editor) {
+      $('#preview').empty();
+      $('#preview').append("<style>" + cssEditor.getValue() + "</style>");
       $('#preview').append(htmlEditor.getValue());
       $('#preview').append("<script>" + jsEditor.getValue() + "</script>");
     }
@@ -59,6 +81,15 @@ jsEditor.on("focus", function(){
 cssEditor.on("focus", function(){
   currentEditor = "css";
 })
+
+var preView = document.querySelector("#preView");
+
+preView.addEventListener("click", function(){
+  $('#preview').empty();
+  $('#preview').append("<style>" + cssEditor.getValue() + "</style>");
+  $('#preview').append(htmlEditor.getValue());
+  $('#preview').append("<script>" + jsEditor.getValue() + "</script>");
+});
 
 function checkCurrent() {
   if(currentEditor === "html")  {

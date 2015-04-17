@@ -6790,7 +6790,9 @@ select {
 
 .side-nav.fixed {
   left: 0;
-  position: fixed; }
+  position: fixed;
+  margin-top: 3rem;
+  width: 113px; }
   .side-nav.fixed.right-aligned {
     right: 0;
     left: auto; }
