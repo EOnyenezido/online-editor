@@ -5,6 +5,16 @@
   //closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
   }
 );*/
+
+//var editorControllers = angular.module('editorControllers', []);
+
+/*editorControllers.controller('editorCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    //$http.get('editor.html').success(function(data) {
+      //$scope.phones = data;
+    });
+}]);*/
+
 var currentEditor = "html";
 var htmlEditor = ace.edit("htmlEditor");
 var jsEditor = ace.edit("jsEditor");
@@ -89,6 +99,18 @@ preView.addEventListener("click", function(){
   $('#preview').append("<style>" + cssEditor.getValue() + "</style>");
   $('#preview').append(htmlEditor.getValue());
   $('#preview').append("<script>" + jsEditor.getValue() + "</script>");
+});
+
+var htmlState;
+var cssState;
+var jsState;
+
+var fullScreen = document.querySelector("#fullScreen");
+
+fullScreen.addEventListener("click", function(){
+  htmlState = htmlEditor.getValue();
+  jsState = jsEditor.getValue();
+  cssState = cssEditor.getValue();
 });
 
 function checkCurrent() {

@@ -1,0 +1,39 @@
+<nav class="navbar-fixed blue">
+  <div class="nav-wrapper">
+    <ul class="left">
+      <li><i class="mdi-action-explore"></i></li>
+      <li><a href="#!" class="brand-logo">LiveFiddle</a></li>
+    </ul>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#/preview" id="fullScreen"><i class="mdi-action-settings-overscan left"></i>Fullscreen</a></li>
+      <li><a href="#!"><i class="mdi-action-view-module right"></i>Session</a></li>
+    </ul>
+  </div>
+</nav>
+<ul class="side-nav fixed">
+  <li><a href="#!" id="preView"><i class="mdi-action-open-in-browser tiny"></i>Preview</a></li>
+  <li><a href="#!" id="save"><i class="mdi-content-save tiny"></i>Save</a></li>
+  <li><a href="#!"><i class="mdi-file-folder-open tiny"></i>Open</a></li>
+  <li class="truncate"><input type="file" id="input"></li>
+</ul>
+<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+<div id="editors">
+  <div class="row">
+    <div class="col s12 blue-text">
+      <ul class="tabs blue-text">
+        <li class="tab col s3"><a class="tabz blue-text" href="#test1">HTML</a></li>
+        <li class="tab col s3"><a class="tabz blue-text" href="#test2">CSS</a></li>
+        <li class="tab col s3"><a class="tabz blue-text" href="#test3">Javascript</a></li>
+      </ul>
+    </div>
+    <div id="test1" class="col s12"><div id="htmlEditor"></div></div>
+    <div id="test2" class="col s12"><div id="cssEditor"></div></div>
+    <div id="test3" class="col s12"><div id="jsEditor"></div></div>
+  </div>
+</div>
+<div id="preview" contenteditable class="z-depth-2"><span id="previewTxt">Preview</span></div>
+<script type="text/javascript" src="assets/materialize/materialize.js"></script>
+<script src="assets/materialize/init.js"></script>
+<script src="assets/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/script.js" type="text/javascript"></script>
+    
