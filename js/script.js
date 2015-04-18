@@ -131,27 +131,35 @@ function checkCurrent() {
 var save = document.querySelector("#save");
 
 function downloadHTML()  {
+  save.removeAttribute('download');
+  save.removeAttribute('href');
   var fileName = prompt("Save as", "index");
-  if(fileName)  {
+  if(fileName !== null)  {
     save.setAttribute('download', fileName + ".html");
     save.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(htmlEditor.getValue()));
   }
 }
 
 function downloadCSS()  {
+  save.removeAttribute('download');
+  save.removeAttribute('href');
   var fileName = prompt("Save as", "style");
   if(fileName)  {
     save.setAttribute('download', fileName + ".css");
     save.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(cssEditor.getValue()));
   }
+  fileName = false;
 }
 
 function downloadJS()  {
+  save.removeAttribute('download');
+  save.removeAttribute('href');
   var fileName = prompt("Save as", "script");
   if(fileName)  {
     save.setAttribute('download', fileName + ".js");
     save.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(jsEditor.getValue()));
   }
+  fileName = false;
 }
 
 save.addEventListener("click", checkCurrent);
