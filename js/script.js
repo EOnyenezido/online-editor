@@ -1,11 +1,3 @@
-//$('.button-collapse').sideNav('hide');
-/*$('.button-collapse').sideNav({
-  menuWidth: 113 // Default is 240
-  //edge: 'right', // Choose the horizontal origin
-  //closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-  }
-);*/
-
 //var editorControllers = angular.module('editorControllers', []);
 
 /*editorControllers.controller('editorCtrl', ['$scope', '$http',
