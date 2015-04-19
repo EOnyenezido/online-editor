@@ -15,6 +15,7 @@
     });
 }]);*/
 
+
 var currentEditor = "html";
 var htmlEditor = ace.edit("htmlEditor");
 var jsEditor = ace.edit("jsEditor");
@@ -76,6 +77,38 @@ jsEditor.commands.addCommand({
       save.click();
     }
 });
+
+jQuery(function($, undefined) {
+    $('#jsTerminal').terminal(function(command, term) {
+      if(command !== '')  {
+        try {
+                var result = window.eval(command);
+                term.echo(new String(result));
+            } catch(e) {
+                term.error(new String(e));
+            }
+      }
+      else  {
+        var jsTerm = jsEditor.getValue();
+        if (jsTerm !== '') {
+            try {
+                var result = window.eval(jsTerm);
+                term.echo(new String(result));
+            } catch(e) {
+                term.error(new String(e));
+            }
+        }
+      }
+    }, {
+        greetings: 'Javascript Interpreter',
+        name: 'js_demo',
+        height: 120,
+        prompt: 'js> '});
+    document.querySelector("#run").addEventListener("click", function()  {
+      $('#jsTerminal').terminal().exec("");
+    })
+});
+
 
 cssEditor.commands.addCommand({
     name: 'saveCSSWork',
@@ -148,7 +181,6 @@ function downloadCSS()  {
     save.setAttribute('download', fileName + ".css");
     save.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(cssEditor.getValue()));
   }
-  fileName = false;
 }
 
 function downloadJS()  {
@@ -159,7 +191,6 @@ function downloadJS()  {
     save.setAttribute('download', fileName + ".js");
     save.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(jsEditor.getValue()));
   }
-  fileName = false;
 }
 
 save.addEventListener("click", checkCurrent);

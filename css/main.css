@@ -40,11 +40,27 @@ header, main, footer{
   }
 }
 
-#htmlEditor, #cssEditor, #jsEditor { 
+#htmlEditor, #cssEditor { 
   position: absolute;
   top: 6rem;
   right: 50%;
   bottom: 1%;
+  left: 9%;
+}
+
+#jsEditor { 
+  position: absolute;
+  top: 6rem;
+  right: 50%;
+  bottom: 20%;
+  left: 9%;
+}
+
+#jsTerminal { 
+  position: absolute;
+  top: 81%;
+  right: 50%;
+  bottom: 0%;
   left: 9%;
 }
 
