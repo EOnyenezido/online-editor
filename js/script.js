@@ -78,22 +78,52 @@ jsEditor.commands.addCommand({
     }
 });
 
+var array = [];
+
+console = {};
+
+console.log = function(msg)   {
+  try{
+    array.push(window.eval(msg));
+  }
+  catch(e)  {
+    array.push(msg);
+  }
+  return "hujvjv@,.(~```#*_)_7&3~`1";
+}
+
 jQuery(function($, undefined) {
     $('#jsTerminal').terminal(function(command, term) {
       if(command !== '')  {
         try {
-                var result = window.eval(command);
-                term.echo(new String(result));
+              var result = window.eval(command);
+              if(array.length > 0)  {
+                array.forEach(function(element) {
+                  term.echo(new String(element), {finalize: function(div) {div.css("color", "#0091ea")}});
+                })
+                array = [];
+              }
+              else{
+                term.echo("=>  " + new String(result), {finalize: function(div) {div.css("color", "#76ff03")}});
+              }
             } catch(e) {
-                term.error(new String(e));
+              term.error(new String(e));
             }
       }
       else  {
         var jsTerm = jsEditor.getValue();
         if (jsTerm !== '') {
             try {
-                var result = window.eval(jsTerm);
-                term.echo(new String(result));
+              var result = window.eval(jsTerm);
+              if(array.length > 0)  {
+                array.forEach(function(element) {
+                  term.echo(new String(element), {finalize: function(div) {div.css("color", "#0091ea")}});
+                })
+                array = [];
+              }
+              if(result !== "hujvjv@,.(~```#*_)_7&3~`1")  {
+                term.echo("=>  " + new String(result), {finalize: function(div) {div.css("color", "#76ff03")}});
+              }
             } catch(e) {
                 term.error(new String(e));
             }
@@ -103,10 +133,17 @@ jQuery(function($, undefined) {
         greetings: 'Javascript Interpreter',
         name: 'js_demo',
         height: 120,
-        prompt: 'js> '});
+        prompt: '> '});
     document.querySelector("#run").addEventListener("click", function()  {
       $('#jsTerminal').terminal().exec("");
     })
+    jsEditor.commands.addCommand({
+      name: 'runJSWork',
+      bindKey: {win: 'Ctrl-R',  mac: 'Command-R'},
+      exec: function(editor) {
+        $('#jsTerminal').terminal().exec("");
+      }
+    });
 });
 
 
@@ -196,6 +233,30 @@ function downloadJS()  {
 save.addEventListener("click", checkCurrent);
 
 var input = document.querySelector("#input");
+
+htmlEditor.commands.addCommand({
+    name: 'open',
+    bindKey: {win: 'Ctrl-O',  mac: 'Command-O'},
+    exec: function(editor) {
+      input.click();
+    }
+});
+
+jsEditor.commands.addCommand({
+    name: 'open',
+    bindKey: {win: 'Ctrl-O',  mac: 'Command-O'},
+    exec: function(editor) {
+      input.click();
+    }
+});
+
+cssEditor.commands.addCommand({
+    name: 'open',
+    bindKey: {win: 'Ctrl-O',  mac: 'Command-O'},
+    exec: function(editor) {
+      input.click();
+    }
+});
 
 input.addEventListener("change", function() {
   if(input.files.length == 0) return;

@@ -72,3 +72,11 @@ header, main, footer{
   left: 51%;
   overflow: auto;
 }
+
+#useful {
+  margin-top: 5rem;
+}
+
+.section  {
+  font-size: 8pt;
+}

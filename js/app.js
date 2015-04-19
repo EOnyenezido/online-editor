@@ -8,7 +8,7 @@ editorApp.config(['$routeProvider',
     }).
     when('/preview', {
       templateUrl: 'preview.html',
-      //controller: 'editorCtrl'
+      //controller: 'previewCtrl'
     }).
     otherwise({
       redirectTo: '/editor'
