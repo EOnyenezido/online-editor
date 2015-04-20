@@ -252,10 +252,10 @@ cssEditor.commands.addCommand({
 
 input.addEventListener("change", function() {
   //if(input.files.length == 0) return;
-  //if(!input.files[0].type.match('text.*') && !input.files[0].type.match('application.*')){
-    //alert("The file doesn't seem to be a valid text or script file");
-  //}
-  //else  {
+  if(!input.files[0].type.match('text.*') && !input.files[0].type.match('application.*')){
+    alert("The file doesn't seem to be a valid text or script file");
+  }
+  else  {
   console.log(input.files[0]);
     var reader = new FileReader();
     reader.onload = function()  {
@@ -265,7 +265,7 @@ input.addEventListener("change", function() {
       if (input.files[0].type == "text/css") {
         cssEditor.setValue(reader.result)
       }
-      else if (input.files[0].type == "application/javascript") {
+      else if (input.files[0].type == "application/zip") {
         jsEditor.setValue(reader.result)
       }
     }
