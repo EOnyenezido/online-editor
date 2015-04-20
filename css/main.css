@@ -80,3 +80,7 @@ header, main, footer{
 .section  {
   font-size: 8pt;
 }
+
+#ttip {
+  color: yellow;
+}
