@@ -1,14 +1,14 @@
-var editorApp = angular.module("editorApp", ["ngRoute"]);
+var editorApp = angular.module("editorApp", ["ngRoute", "editorControllers"]);
 
 editorApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.when('/editor', {
       templateUrl: 'editor.html',
-      //controller: 'editorCtrl'
+      controller: 'editorCtrl'
     }).
     when('/preview', {
       templateUrl: 'preview.html',
-      //controller: 'previewCtrl'
+      controller: 'previewCtrl'
     }).
     otherwise({
       redirectTo: '/editor'

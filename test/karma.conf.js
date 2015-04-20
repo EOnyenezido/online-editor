@@ -6,10 +6,11 @@ module.exports = function(config){
     files : [
       'assets/angular/angular.min.js',
       'assets/angular/angular-route.min.js',
+      'assets/angular/angular-mocks.js',
       'assets/jquery/jquery-2.1.1.min.js',
       'assets/ace/*.js',
       'js/app.js',
-      'editor.html',
+      'js/controllers.js',
       'test/unit/**/*.js'
     ],
 

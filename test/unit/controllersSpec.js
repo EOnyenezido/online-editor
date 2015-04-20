@@ -2,11 +2,17 @@
 
 /* jasmine specs for controllers go here */
 describe('Editor controllers', function() {
+  var scope, ctrl;
+  beforeEach(module('editorApp'));
 
-  //beforeEach(module('editorApp'));
+  beforeEach(inject(function($rootScope, $controller) {
+    scope = $rootScope.$new();
+    ctrl = $controller('editorCtrl', {$scope: scope});
+  }));
 
   it('should create 3 editors, HTML, CSS and Javascript', function() {
-    expect(htmlEditor).toBeDefined();
+    //console.log(ctrl);
+    expect(ctrl).toBeDefined();
   });
 
   /*beforeEach(function(){
@@ -17,10 +23,9 @@ describe('Editor controllers', function() {
     });
   });
 
-  beforeEach(module('phonecatApp'));
-  beforeEach(module('phonecatServices'));
+  beforeEach(module('editorApp'));
 
-  describe('PhoneListCtrl', function(){
+  describe('editorCtrl', function(){
     var scope, ctrl, $httpBackend;
 
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
