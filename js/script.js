@@ -259,9 +259,9 @@ input.addEventListener("change", function() {
   console.log(input.files[0]);
     var reader = new FileReader();
     reader.onload = function()  {
-      //if(input.files[0].type == "text/html")  {
+      if(input.files[0].type == "text/html")  {
         htmlEditor.setValue(reader.result)
-      //}
+      }
       if (input.files[0].type == "text/css") {
         cssEditor.setValue(reader.result)
       }
