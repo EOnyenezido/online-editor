@@ -12,11 +12,11 @@ var currentEditor = "html";
 var htmlEditor = ace.edit("htmlEditor");
 var jsEditor = ace.edit("jsEditor");
 var cssEditor = ace.edit("cssEditor");
-jsEditor.setTheme("ace/theme/github");
+jsEditor.setTheme("ace/theme/chrome");
 jsEditor.getSession().setMode("ace/mode/javascript");
-htmlEditor.setTheme("ace/theme/github");
+htmlEditor.setTheme("ace/theme/chrome");
 htmlEditor.getSession().setMode("ace/mode/html");
-cssEditor.setTheme("ace/theme/github");
+cssEditor.setTheme("ace/theme/chrome");
 cssEditor.getSession().setMode("ace/mode/css");
 htmlEditor.setValue(htmlState);
 jsEditor.setValue(jsState);
@@ -85,42 +85,42 @@ console.log = function(msg)   {
 }
 
 jQuery(function($, undefined) {
-    $('#jsTerminal').terminal(function(command, term) {
-      if(command !== '')  {
-        try {
-              var result = window.eval(command);
-              if(array.length > 0)  {
-                array.forEach(function(element) {
-                  term.echo(new String(element), {finalize: function(div) {div.css("color", "#0091ea")}});
-                })
-                array = [];
-              }
-              else{
-                term.echo("=>  " + new String(result), {finalize: function(div) {div.css("color", "#76ff03")}});
-              }
-            } catch(e) {
-              term.error(new String(e));
-            }
-      }
-      else  {
-        var jsTerm = jsEditor.getValue();
-        if (jsTerm !== '') {
-            try {
-              var result = window.eval(jsTerm);
-              if(array.length > 0)  {
-                array.forEach(function(element) {
-                  term.echo(new String(element), {finalize: function(div) {div.css("color", "#0091ea")}});
-                })
-                array = [];
-              }
-              if(result !== "hujvjv@,.(~```#*_)_7&3~`1")  {
-                term.echo("=>  " + new String(result), {finalize: function(div) {div.css("color", "#76ff03")}});
-              }
-            } catch(e) {
-                term.error(new String(e));
-            }
+  $('#jsTerminal').terminal(function(command, term) {
+    if(command !== '')  {
+      try {
+        var result = window.eval(command);
+        if(array.length > 0)  {
+          array.forEach(function(element) {
+            term.echo(new String(element), {finalize: function(div) {div.css("color", "#0091ea")}});
+           })
+          array = [];
         }
+        else{
+          term.echo("=>  " + new String(result), {finalize: function(div) {div.css("color", "#76ff03")}});
+         }
+      } catch(e) {
+          term.error(new String(e));
+        }
+    }
+    else  {
+      var jsTerm = jsEditor.getValue();
+      if (jsTerm !== '') {
+        try {
+          var result = window.eval(jsTerm);
+          if(array.length > 0)  {
+            array.forEach(function(element) {
+              term.echo(new String(element), {finalize: function(div) {div.css("color", "#0091ea")}});
+            })
+          array = [];
+          }
+          if(result !== "hujvjv@,.(~```#*_)_7&3~`1")  {
+            term.echo("=>  " + new String(result), {finalize: function(div) {div.css("color", "#76ff03")}});
+          }
+        } catch(e) {
+           term.error(new String(e));
+          }
       }
+    }
     }, {
         greetings: 'Javascript Interpreter',
         name: 'js_demo',
