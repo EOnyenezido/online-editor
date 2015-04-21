@@ -72,7 +72,7 @@ jsEditor.commands.addCommand({
 
 var array = [];
 
-/*console = {};
+console = {};
 
 console.log = function(msg)   {
   try{
@@ -82,7 +82,7 @@ console.log = function(msg)   {
     array.push(msg);
   }
   return "hujvjv@,.(~```#*_)_7&3~`1";
-}*/
+}
 
 jQuery(function($, undefined) {
   $('#jsTerminal').terminal(function(command, term) {
@@ -270,5 +270,5 @@ input.addEventListener("change", function() {
       }
     }
     reader.readAsText(input.files[0]);
-  //}
+  }
 });
