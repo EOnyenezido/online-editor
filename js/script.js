@@ -72,7 +72,7 @@ jsEditor.commands.addCommand({
 
 var array = [];
 
-console = {};
+/*console = {};
 
 console.log = function(msg)   {
   try{
@@ -82,7 +82,7 @@ console.log = function(msg)   {
     array.push(msg);
   }
   return "hujvjv@,.(~```#*_)_7&3~`1";
-}
+}*/
 
 jQuery(function($, undefined) {
   $('#jsTerminal').terminal(function(command, term) {
@@ -256,7 +256,7 @@ input.addEventListener("change", function() {
     alert("The file doesn't seem to be a valid text or script file");
   }
   else  {
-  console.log(input.files[0]);
+  console.log(input.files[0].type);
     var reader = new FileReader();
     reader.onload = function()  {
       if(input.files[0].type == "text/html")  {
@@ -265,7 +265,7 @@ input.addEventListener("change", function() {
       if (input.files[0].type == "text/css") {
         cssEditor.setValue(reader.result)
       }
-      else if (input.files[0].type == "application/zip") {
+      else if (input.files[0].type == "application/javascript") {
         jsEditor.setValue(reader.result)
       }
     }
