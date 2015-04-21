@@ -256,7 +256,6 @@ input.addEventListener("change", function() {
     alert("The file doesn't seem to be a valid text or script file");
   }
   else  {
-  console.log(input.files[0].type);
     var reader = new FileReader();
     reader.onload = function()  {
       if(input.files[0].type == "text/html")  {
