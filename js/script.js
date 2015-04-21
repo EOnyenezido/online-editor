@@ -72,7 +72,7 @@ jsEditor.commands.addCommand({
 
 var array = [];
 
-/*console = {};
+console = {};
 
 console.log = function(msg)   {
   try{
@@ -82,7 +82,7 @@ console.log = function(msg)   {
     array.push(msg);
   }
   return "hujvjv@,.(~```#*_)_7&3~`1";
-}*/
+}
 
 jQuery(function($, undefined) {
   $('#jsTerminal').terminal(function(command, term) {
@@ -251,7 +251,7 @@ cssEditor.commands.addCommand({
 });
 
 input.addEventListener("change", function() {
-  //if(input.files.length == 0) return;
+  if(input.files.length == 0) return;
   if(!input.files[0].type.match('text.*') && !input.files[0].type.match('application.*')){
     alert("The file doesn't seem to be a valid text or script file");
   }
@@ -265,7 +265,7 @@ input.addEventListener("change", function() {
       if (input.files[0].type == "text/css") {
         cssEditor.setValue(reader.result)
       }
-      else if (input.files[0].type == "application/javascript") {
+      else if (input.files[0].type == "application/javascript" || input.files[0].type == "text/javascript") {
         jsEditor.setValue(reader.result)
       }
     }
